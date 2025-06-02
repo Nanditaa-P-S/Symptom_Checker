@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Diagnosis Results | Symptom Checker</title>
+  {% load static %}
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- AOS Animation CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #fdfbfb, #ebedee);
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .navbar {
+      background: #0077cc;
+    }
+
+    .navbar a {
+      color: white !important;
+      margin-left: 15px;
+    }
+
+    .container {
+      padding: 50px 20px;
+    }
+
+    .section-title {
+      font-size: 30px;
+      text-align: center;
+      color: #004d99;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .footer-msg {
+      text-align: center;
+      color: #666;
+      margin-top: 40px;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">🩺 Symptom Checker</a>
+      <div class="navbar-nav">
+        <a class="nav-link" href="{% url 'symptom_form' %}">Home</a>
+        <a class="nav-link" href="{% url 'search_tips' %}">Health Tips</a>
+        <a class="nav-link" href="{% url 'medication_reminder' %}">Reminders</a>
+        <a class="nav-link" href="/admin">Admin</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">📋 Diagnosis Results</h2>
+
+    <!-- Diseases -->
+    <div class="row mb-5">
+      {% for disease in diseases %}
+        <div class="col-md-6 mb-4" data-aos="fade-right">
+          <div class="card p-3">
+            <h5 class="card-title">🦠 {{ disease.name }}</h5>
+            <p class="card-text">{{ disease.description }}</p>
+          </div>
+        </div>
+      {% empty %}
+        <p>No diseases matched your symptoms.</p>
+      {% endfor %}
+    </div>
+
+    <!-- Doctors -->
+    <h3 class="mb-3" data-aos="fade-up">👨‍⚕️ Recommended Doctors</h3>
+    <div class="row mb-5">
+      {% for doctor in doctors %}
+        <div class="col-md-4 mb-4" data-aos="zoom-in">
+          <div class="card p-3">
+            <h6>{{ doctor.name }}</h6>
+            <p>Specialty: {{ doctor.specialty }}</p>
+            <p>Contact: {{ doctor.contact }}</p>
+          </div>
+        </div>
+      {% empty %}
+        <p>No doctor found.</p>
+      {% endfor %}
+    </div>
+
+    <!-- Health Tips -->
+    <h3 class="mb-3" data-aos="fade-up">💡 Health Tips</h3>
+    <div class="row">
+      {% for tip in tips %}
+        <div class="col-md-6 mb-4" data-aos="flip-left">
+          <div class="card p-3">
+            <h6>{{ tip.title }}</h6>
+            <p>{{ tip.content }}</p>
+          </div>
+        </div>
+      {% empty %}
+        <p>No health tips available.</p>
+      {% endfor %}
+    </div>
+
+    <div class="text-center mt-4">
+      <a href="{% url 'symptom_form' %}" class="btn btn-outline-primary">🔁 Check Again</a>
+    </div>
+
+    <p class="footer-msg">🌱 Stay strong, stay informed. Your health is your power.</p>
+  </div>
+
+  <!-- JS Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+
+</body>
+</html>

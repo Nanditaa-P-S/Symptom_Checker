@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reminder Set</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'checker/style.css' %}">
+</head>
+<body>
+    <div class="navbar">
+        Symptom Checker |
+        <a href="{% url 'symptom_form' %}">Home</a> |
+        <a href="{% url 'search_tips' %}">Search Tips</a>
+        | <a href="{% url 'medication_reminder' %}">Reminders</a>
+
+    </div>
+
+    <div class="container">
+        <h1>Reminder Set Successfully</h1>
+        <p>Thank you, {{ user_name }}. Your medication reminder has been saved.</p>
+        <a href="{% url 'medication_reminder' %}">Set another reminder</a>
+    </div>
+</body>
+</html>

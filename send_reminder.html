@@ -1,0 +1,115 @@
+{% extends 'checker/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="mb-0">📧 Send Medication Reminder</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+
+                        <div class="mb-3">
+                            <label for="user_email" class="form-label">Patient Email Address</label>
+                            <input type="email" class="form-control" id="user_email" name="user_email"
+                                   value="{{ user_email }}" placeholder="Enter patient's email address" required>
+                            <div class="form-text">The reminder will be sent to this email address.</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="medicine_name" class="form-label">Medicine Name</label>
+                            <input type="text" class="form-control" id="medicine_name" name="medicine_name"
+                                   value="{{ medicine_name }}" placeholder="Enter medicine name" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="dosage_time" class="form-label">Dosage Time</label>
+                            <input type="time" class="form-control" id="dosage_time" name="dosage_time"
+                                   value="{{ dosage_time }}" required>
+                            <div class="form-text">Time when the medication should be taken.</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="additional_notes" class="form-label">Additional Notes (Optional)</label>
+                            <textarea class="form-control" id="additional_notes" name="additional_notes"
+                                      rows="3" placeholder="Any special instructions or notes"></textarea>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                📧 Send Reminder Email
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Email Configuration Help -->
+            <div class="card mt-4">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0">📋 Email Configuration Help</h5>
+                </div>
+                <div class="card-body">
+                    <p><strong>If emails are not sending, please check:</strong></p>
+                    <ol>
+                        <li><strong>Email Settings:</strong> Make sure your email settings in <code>settings.py</code> are correct</li>
+                        <li><strong>Gmail Setup:</strong> If using Gmail, you need to:
+                            <ul>
+                                <li>Enable 2-factor authentication</li>
+                                <li>Generate an App Password</li>
+                                <li>Use the App Password in your settings</li>
+                            </ul>
+                        </li>
+                        <li><strong>Alternative:</strong> For testing, you can use Django's console email backend</li>
+                    </ol>
+
+                    <div class="alert alert-warning mt-3">
+                        <strong>Quick Fix for Testing:</strong><br>
+                        To see emails in the console instead of sending them, add this to your settings.py:<br>
+                        <code>EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Email Logs -->
+            <div class="card mt-4">
+                <div class="card-header bg-secondary text-white">
+                    <h5 class="mb-0">📊 Recent Email Activity</h5>
+                </div>
+                <div class="card-body">
+                    <p>Check the <a href="{% url 'mongo_data' %}" class="btn btn-sm btn-outline-primary">MongoDB Data Page</a>
+                       to see email logs and delivery status.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: none;
+}
+
+.card-header {
+    border-bottom: none;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #007bff, #0056b3);
+    border: none;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(45deg, #0056b3, #004085);
+}
+</style>
+{% endblock %}

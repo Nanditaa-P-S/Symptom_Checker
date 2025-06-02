@@ -1,0 +1,229 @@
+{% extends 'checker/base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-xl-6">
+            <!-- Welcome Card -->
+            <div class="card shadow-lg border-0 rounded-4 mb-4" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px);">
+                <div class="card-body p-5">
+                    <!-- Header -->
+                    <div class="text-center mb-4">
+                        <div class="mb-3">
+                            <i class="fas fa-user-md fa-4x text-primary" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                        </div>
+                        <h1 class="display-5 fw-bold mb-3" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                            Welcome to Symptom Checker
+                        </h1>
+                        <p class="lead text-muted">
+                            Let's start by getting to know you better. Please provide your information to get personalized health insights.
+                        </p>
+                    </div>
+
+                    <!-- User Info Form -->
+                    <form method="post" class="needs-validation" novalidate>
+                        {% csrf_token %}
+                        
+                        <div class="row g-4">
+                            <!-- Name -->
+                            <div class="col-md-6">
+                                <label for="name" class="form-label fw-semibold">
+                                    <i class="fas fa-user text-primary me-2"></i>Full Name
+                                </label>
+                                <input type="text" class="form-control form-control-lg rounded-3" 
+                                       id="name" name="name" required
+                                       placeholder="Enter your full name"
+                                       style="border: 2px solid #e9ecef; transition: all 0.3s ease;">
+                                <div class="invalid-feedback">
+                                    Please provide your name.
+                                </div>
+                            </div>
+
+                            <!-- Age -->
+                            <div class="col-md-6">
+                                <label for="age" class="form-label fw-semibold">
+                                    <i class="fas fa-birthday-cake text-primary me-2"></i>Age
+                                </label>
+                                <input type="number" class="form-control form-control-lg rounded-3" 
+                                       id="age" name="age" required min="1" max="120"
+                                       placeholder="Your age"
+                                       style="border: 2px solid #e9ecef; transition: all 0.3s ease;">
+                                <div class="invalid-feedback">
+                                    Please provide a valid age.
+                                </div>
+                            </div>
+
+                            <!-- Gender -->
+                            <div class="col-md-6">
+                                <label for="gender" class="form-label fw-semibold">
+                                    <i class="fas fa-venus-mars text-primary me-2"></i>Gender
+                                </label>
+                                <select class="form-select form-select-lg rounded-3" 
+                                        id="gender" name="gender" required
+                                        style="border: 2px solid #e9ecef; transition: all 0.3s ease;">
+                                    <option value="">Select Gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                    <option value="prefer_not_to_say">Prefer not to say</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please select your gender.
+                                </div>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="col-md-6">
+                                <label for="email" class="form-label fw-semibold">
+                                    <i class="fas fa-envelope text-primary me-2"></i>Email Address
+                                </label>
+                                <input type="email" class="form-control form-control-lg rounded-3" 
+                                       id="email" name="email"
+                                       placeholder="your.email@example.com"
+                                       style="border: 2px solid #e9ecef; transition: all 0.3s ease;">
+                                <div class="form-text">
+                                    <small class="text-muted">Optional - for medication reminders</small>
+                                </div>
+                            </div>
+
+                            <!-- Phone -->
+                            <div class="col-12">
+                                <label for="phone" class="form-label fw-semibold">
+                                    <i class="fas fa-phone text-primary me-2"></i>Phone Number
+                                </label>
+                                <input type="tel" class="form-control form-control-lg rounded-3" 
+                                       id="phone" name="phone"
+                                       placeholder="+1 (555) 123-4567"
+                                       style="border: 2px solid #e9ecef; transition: all 0.3s ease;">
+                                <div class="form-text">
+                                    <small class="text-muted">Optional - for emergency contacts</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="text-center mt-5">
+                            <button type="submit" class="btn btn-lg px-5 py-3 rounded-3 fw-semibold" 
+                                    style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+                                           border: none; color: white; transition: all 0.3s ease;
+                                           box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);">
+                                <i class="fas fa-arrow-right me-2"></i>
+                                Continue to Symptom Check
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Features Preview -->
+            <div class="row g-4 mt-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm rounded-3" style="background: rgba(255, 255, 255, 0.9);">
+                        <div class="card-body text-center p-4">
+                            <i class="fas fa-stethoscope fa-2x text-primary mb-3"></i>
+                            <h5 class="fw-semibold">Symptom Analysis</h5>
+                            <p class="text-muted small">Get personalized health insights based on your symptoms</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm rounded-3" style="background: rgba(255, 255, 255, 0.9);">
+                        <div class="card-body text-center p-4">
+                            <i class="fas fa-user-md fa-2x text-success mb-3"></i>
+                            <h5 class="fw-semibold">Doctor Recommendations</h5>
+                            <p class="text-muted small">Find the right specialists for your health concerns</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm rounded-3" style="background: rgba(255, 255, 255, 0.9);">
+                        <div class="card-body text-center p-4">
+                            <i class="fas fa-pills fa-2x text-warning mb-3"></i>
+                            <h5 class="fw-semibold">Medication Reminders</h5>
+                            <p class="text-muted small">Never miss your medication with smart reminders</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Enhanced Form Styling */
+.form-control:focus, .form-select:focus {
+    border-color: #667eea !important;
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25) !important;
+    transform: translateY(-1px);
+}
+
+.btn:hover {
+    transform: translateY(-2px) scale(1.02) !important;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4) !important;
+}
+
+.card {
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1) !important;
+}
+
+/* Animation for form inputs */
+.form-control, .form-select {
+    transition: all 0.3s ease;
+}
+
+.form-control:hover, .form-select:hover {
+    border-color: #667eea;
+    transform: translateY(-1px);
+}
+
+/* Floating labels effect */
+.form-label {
+    transition: all 0.3s ease;
+}
+
+.form-control:focus + .form-label,
+.form-select:focus + .form-label {
+    color: #667eea;
+    transform: scale(0.95);
+}
+</style>
+
+<script>
+// Form validation
+(function() {
+    'use strict';
+    window.addEventListener('load', function() {
+        var forms = document.getElementsByClassName('needs-validation');
+        var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    }, false);
+})();
+
+// Enhanced input animations
+document.addEventListener('DOMContentLoaded', function() {
+    const inputs = document.querySelectorAll('.form-control, .form-select');
+    
+    inputs.forEach(input => {
+        input.addEventListener('focus', function() {
+            this.parentElement.style.transform = 'scale(1.02)';
+        });
+        
+        input.addEventListener('blur', function() {
+            this.parentElement.style.transform = 'scale(1)';
+        });
+    });
+});
+</script>
+{% endblock %}

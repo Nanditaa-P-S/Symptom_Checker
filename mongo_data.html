@@ -1,0 +1,311 @@
+{% extends 'checker/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4">MongoDB Data</h1>
+
+    {% if not mongodb_available %}
+        <div class="alert alert-warning">
+            <h4 class="alert-heading">MongoDB Not Available</h4>
+            <p>{{ error_message }}</p>
+            <hr>
+            <p class="mb-0">
+                To use MongoDB for local storage, please:
+                <ol>
+                    <li>Install MongoDB from <a href="https://www.mongodb.com/try/download/community" target="_blank">the official MongoDB website</a></li>
+                    <li>Install the pymongo package with: <code>pip install pymongo</code></li>
+                    <li>Start the local MongoDB server with: <code>python manage.py start_mongodb</code></li>
+                    <li>Refresh this page</li>
+                </ol>
+                <strong>Note:</strong> The application is currently using JSON files for local storage. All data is saved in the local_data directory.
+            </p>
+
+            <div class="alert alert-info mt-3">
+                <h4 class="alert-heading">MongoDB Installation Instructions</h4>
+                <p>To properly set up MongoDB:</p>
+                <ol>
+                    <li>Download MongoDB Community Server from <a href="https://www.mongodb.com/try/download/community" target="_blank">the official MongoDB website</a></li>
+                    <li>Run the installer and follow the installation wizard</li>
+                    <li>Choose "Complete" installation</li>
+                    <li>Install MongoDB Compass (the GUI) when prompted</li>
+                    <li>After installation, open a new command prompt and run: <code>pip install pymongo</code></li>
+                    <li>Restart your Django application</li>
+                </ol>
+            </div>
+        </div>
+    {% else %}
+        <div class="alert alert-success mb-4">
+            <h4 class="alert-heading">MongoDB Connected (Local Storage)</h4>
+            <p>MongoDB is connected and working. All data is being stored locally in the MongoDB database.</p>
+            <hr>
+            <p class="mb-0">
+                <strong>Data Location:</strong> All MongoDB data is stored locally in the <code>mongodb_data</code> directory in your project folder.
+                <br>
+                <strong>To stop the MongoDB server:</strong> Run <code>python manage.py stop_mongodb</code> when you're done.
+            </p>
+        </div>
+    {% endif %}
+
+    {% if mongodb_available and local_patient_records %}
+        <div class="mb-4">
+            <h2>Data Storage</h2>
+            <ul class="nav nav-tabs" id="dataTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="mongodb-tab" data-bs-toggle="tab" data-bs-target="#mongodb" type="button" role="tab" aria-controls="mongodb" aria-selected="true">MongoDB Data</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="local-tab" data-bs-toggle="tab" data-bs-target="#local" type="button" role="tab" aria-controls="local" aria-selected="false">Local Storage Data</button>
+                </li>
+            </ul>
+            <div class="tab-content" id="dataTabsContent">
+                <div class="tab-pane fade show active" id="mongodb" role="tabpanel" aria-labelledby="mongodb-tab">
+    {% endif %}
+
+    <!-- Patient Records -->
+    <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+            <h2 class="h5 mb-0">Patient Records</h2>
+        </div>
+        <div class="card-body">
+            {% if patient_records %}
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Age</th>
+                                <th>Gender</th>
+                                <th>Check Date</th>
+                                <th>Symptoms</th>
+                                <th>Diseases</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for record in patient_records %}
+                                <tr>
+                                    <td>{{ record.name }}</td>
+                                    <td>{{ record.age }}</td>
+                                    <td>{{ record.gender }}</td>
+                                    <td>{{ record.check_date }}</td>
+                                    <td>
+                                        <ul class="list-unstyled">
+                                            {% for symptom in record.symptoms %}
+                                                <li>{{ symptom.name }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <ul class="list-unstyled">
+                                            {% for disease in record.diseases %}
+                                                <li>{{ disease.name }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <p>No patient records found in MongoDB.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Medication Reminders -->
+    <div class="card mb-4">
+        <div class="card-header bg-success text-white">
+            <h2 class="h5 mb-0">Medication Reminders</h2>
+        </div>
+        <div class="card-body">
+            {% if medication_reminders %}
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Medicine</th>
+                                <th>Dosage Time</th>
+                                <th>Frequency</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for reminder in medication_reminders %}
+                                <tr>
+                                    <td>{{ reminder.user_name }}</td>
+                                    <td>{{ reminder.medicine_name }}</td>
+                                    <td>{{ reminder.dosage_time }}</td>
+                                    <td>{{ reminder.frequency_per_day }} times/day</td>
+                                    <td>{{ reminder.start_date }}</td>
+                                    <td>{{ reminder.end_date }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <p>No medication reminders found in MongoDB.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Search Logs -->
+    <div class="card mb-4">
+        <div class="card-header bg-info text-white">
+            <h2 class="h5 mb-0">Search Logs</h2>
+        </div>
+        <div class="card-body">
+            {% if search_logs %}
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Query</th>
+                                <th>Timestamp</th>
+                                <th>Results Count</th>
+                                <th>User IP</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for log in search_logs %}
+                                <tr>
+                                    <td>{{ log.query }}</td>
+                                    <td>{{ log.timestamp }}</td>
+                                    <td>{{ log.results_count }}</td>
+                                    <td>{{ log.user_ip }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <p>No search logs found in MongoDB.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Email Logs -->
+    <div class="card mb-4">
+        <div class="card-header bg-warning text-dark">
+            <h2 class="h5 mb-0">Email Logs</h2>
+        </div>
+        <div class="card-body">
+            {% if email_logs %}
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Recipient</th>
+                                <th>Subject</th>
+                                <th>Timestamp</th>
+                                <th>Status</th>
+                                <th>Error</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for log in email_logs %}
+                                <tr>
+                                    <td>{{ log.recipient }}</td>
+                                    <td>{{ log.subject }}</td>
+                                    <td>{{ log.timestamp }}</td>
+                                    <td>
+                                        {% if log.status == 'sent' %}
+                                            <span class="badge bg-success">Sent</span>
+                                        {% else %}
+                                            <span class="badge bg-danger">Failed</span>
+                                        {% endif %}
+                                    </td>
+                                    <td>{{ log.error|default:"-" }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <p>No email logs found in MongoDB.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    {% if mongodb_available and local_patient_records %}
+                </div>
+                <div class="tab-pane fade" id="local" role="tabpanel" aria-labelledby="local-tab">
+                    <!-- Local Patient Records -->
+                    <div class="card mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h2 class="h5 mb-0">Local Patient Records</h2>
+                        </div>
+                        <div class="card-body">
+                            {% if local_patient_records %}
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Name</th>
+                                                <th>Age</th>
+                                                <th>Gender</th>
+                                                <th>Timestamp</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for record in local_patient_records %}
+                                                <tr>
+                                                    <td>{{ record.id }}</td>
+                                                    <td>{{ record.name }}</td>
+                                                    <td>{{ record.age }}</td>
+                                                    <td>{{ record.gender }}</td>
+                                                    <td>{{ record.timestamp }}</td>
+                                                </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            {% else %}
+                                <p>No patient records found in local storage.</p>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <!-- Local Medication Reminders -->
+                    <div class="card mb-4">
+                        <div class="card-header bg-success text-white">
+                            <h2 class="h5 mb-0">Local Medication Reminders</h2>
+                        </div>
+                        <div class="card-body">
+                            {% if local_medication_reminders %}
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>User</th>
+                                                <th>Medicine</th>
+                                                <th>Timestamp</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for reminder in local_medication_reminders %}
+                                                <tr>
+                                                    <td>{{ reminder.id }}</td>
+                                                    <td>{{ reminder.user_name }}</td>
+                                                    <td>{{ reminder.medicine_name }}</td>
+                                                    <td>{{ reminder.timestamp }}</td>
+                                                </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            {% else %}
+                                <p>No medication reminders found in local storage.</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
