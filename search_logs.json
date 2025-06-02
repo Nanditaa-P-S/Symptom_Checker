@@ -1,0 +1,20 @@
+[
+  {
+    "query": "Fever",
+    "timestamp": "2025-05-21T10:43:22.113171+00:00",
+    "results_count": 0,
+    "user_ip": "127.0.0.1",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0",
+    "_id": "1",
+    "_timestamp": "2025-05-21T16:13:22.122178"
+  },
+  {
+    "query": "asthma",
+    "timestamp": "2025-05-21T10:43:42.635228+00:00",
+    "results_count": 1,
+    "user_ip": "127.0.0.1",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0",
+    "_id": "2",
+    "_timestamp": "2025-05-21T16:13:42.647547"
+  }
+]

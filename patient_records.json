@@ -1,0 +1,462 @@
+[
+  {
+    "django_id": 20,
+    "name": "Sabithra",
+    "age": 17,
+    "gender": "Female",
+    "symptoms": [
+      {
+        "id": 13,
+        "name": "Heartburn"
+      }
+    ],
+    "diseases": [
+      {
+        "id": 10,
+        "name": "GERD",
+        "description": "Chronic acid reflux damaging esophagus. Managed with PPIs/diet changes."
+      },
+      {
+        "id": 11,
+        "name": "Hiatal hernia",
+        "description": "Stomach protrusion into chest. Worsens reflux; may need surgery."
+      }
+    ],
+    "check_date": "2025-05-21T10:03:05.986118+00:00",
+    "duration": "1",
+    "_id": "1",
+    "_timestamp": "2025-05-21T15:33:05.986118"
+  },
+  {
+    "django_id": 21,
+    "name": "Sabithra",
+    "age": 17,
+    "gender": "Male",
+    "symptoms": [
+      {
+        "id": 2,
+        "name": "Dry cough"
+      }
+    ],
+    "diseases": [
+      {
+        "id": 1,
+        "name": "Influenza",
+        "description": "Seasonal flu virus with sudden fever, body aches, and respiratory symptoms."
+      }
+    ],
+    "check_date": "2025-05-21T10:08:07.645515+00:00",
+    "duration": "1",
+    "_id": "2",
+    "_timestamp": "2025-05-21T15:38:07.649468"
+  },
+  {
+    "django_id": 22,
+    "name": "Sabithra",
+    "age": 17,
+    "gender": "Female",
+    "symptoms": [
+      {
+        "id": 10,
+        "name": "Abdominal pain"
+      }
+    ],
+    "diseases": [
+      {
+        "id": 8,
+        "name": "Gastroenteritis",
+        "description": "Stomach flu from viruses/bacteria. Resolves in 1-3 days with hydration."
+      },
+      {
+        "id": 9,
+        "name": "IBS",
+        "description": "Functional bowel disorder with chronic pain/bloating. Triggered by stress/diet."
+      }
+    ],
+    "check_date": "2025-05-21T10:31:44.152867+00:00",
+    "duration": "1",
+    "_id": "3",
+    "_timestamp": "2025-05-21T16:01:44.153891"
+  },
+  {
+    "django_id": 23,
+    "name": "Sabithra",
+    "age": 17,
+    "gender": "Female",
+    "symptoms": [
+      {
+        "id": 3,
+        "name": "Fatigue"
+      }
+    ],
+    "diseases": [
+      {
+        "id": 1,
+        "name": "Influenza",
+        "description": "Seasonal flu virus with sudden fever, body aches, and respiratory symptoms."
+      }
+    ],
+    "check_date": "2025-05-21T10:42:35.883535+00:00",
+    "duration": "1",
+    "_id": "4",
+    "_timestamp": "2025-05-21T16:12:35.887534"
+  },
+  {
+    "django_id": 24,
+    "name": "Sabithra",
+    "age": 17,
+    "gender": "Female",
+    "symptoms": [
+      {
+        "id": 4,
+        "name": "Cough with yellow/green phlegm"
+      },
+      {
+        "id": 5,
+        "name": "Wheezing"
+      }
+    ],
+    "diseases": [
+      {
+        "id": 2,
+        "name": "Acute bronchitis",
+        "description": "Inflammation of bronchial tubes causing productive cough. Often viral in origin."
+      },
+      {
+        "id": 3,
+        "name": "Pneumonia",
+        "description": "Lung infection with fluid buildup. Requires antibiotics if bacterial."
+      },
+      {
+        "id": 4,
+        "name": "Asthma",
+        "description": "Chronic airway inflammation triggered by allergens/exercise. Reversible with inhalers."
+      },
+      {
+        "id": 5,
+        "name": "COPD",
+        "description": "Progressive lung damage (emphysema/bronchitis). Linked to smoking/long-term pollution."
+      }
+    ],
+    "check_date": "2025-05-23T10:19:19.663761+00:00",
+    "duration": "1",
+    "id": "5",
+    "timestamp": "2025-05-23T15:49:19.665764"
+  },
+  {
+    "django_id": 25,
+    "name": "Sabithra",
+    "age": 17,
+    "gender": "Female",
+    "symptoms": [
+      {
+        "id": 2,
+        "name": "Dry cough"
+      },
+      {
+        "id": 3,
+        "name": "Fatigue"
+      }
+    ],
+    "diseases": [
+      {
+        "id": 1,
+        "name": "Influenza",
+        "description": "Seasonal flu virus with sudden fever, body aches, and respiratory symptoms."
+      }
+    ],
+    "check_date": "2025-05-28T10:07:11.470578+00:00",
+    "duration": "1",
+    "id": "6",
+    "timestamp": "2025-05-28T15:37:11.474890"
+  },
+  {
+    "django_id": 26,
+    "name": "Nanditaa ",
+    "age": 18,
+    "gender": "Female",
+    "symptoms": [
+      {
+        "id": 1,
+        "name": "Fever"
+      }
+    ],
+    "diseases": [
+      {
+        "id": 1,
+        "name": "Influenza",
+        "description": "Seasonal flu virus with sudden fever, body aches, and respiratory symptoms."
+      }
+    ],
+    "check_date": "2025-05-31T18:21:10.182499+00:00",
+    "duration": "2",
+    "id": "7",
+    "timestamp": "2025-05-31T23:51:10.209464"
+  },
+  {
+    "django_id": 27,
+    "name": "Dav",
+    "age": 5,
+    "gender": "Male",
+    "symptoms": [
+      {
+        "id": 19,
+        "name": "Headache"
+      },
+      {
+        "id": 24,
+        "name": "Sudden severe headache (\"worst headache ever\")"
+      }
+    ],
+    "diseases": [
+      {
+        "id": 16,
+        "name": "Migraine",
+        "description": "Throbbing one-sided headache with aura. Triggers include stress/hormones."
+      },
+      {
+        "id": 17,
+        "name": "Tension headache",
+        "description": "Band-like pressure from stress/muscle strain. No nausea/vomiting."
+      },
+      {
+        "id": 20,
+        "name": "Stroke",
+        "description": "Brain artery blockage/rupture. \"FAST\" signs (face droop, arm weakness, speech difficulty)."
+      },
+      {
+        "id": 21,
+        "name": "Brain aneurysm",
+        "description": "Ruptured vessel causes thunderclap headache. Medical emergency."
+      }
+    ],
+    "check_date": "2025-06-01T04:59:08.512686+00:00",
+    "duration": "5",
+    "id": "8",
+    "timestamp": "2025-06-01T10:29:08.515687"
+  },
+  {
+    "django_id": 28,
+    "name": "Dav",
+    "age": 5,
+    "gender": "Female",
+    "symptoms": [
+      {
+        "id": 2,
+        "name": "Dry cough"
+      },
+      {
+        "id": 3,
+        "name": "Fatigue"
+      }
+    ],
+    "diseases": [
+      {
+        "id": 1,
+        "name": "Influenza",
+        "description": "Seasonal flu virus with sudden fever, body aches, and respiratory symptoms."
+      }
+    ],
+    "check_date": "2025-06-01T16:56:11.946524+00:00",
+    "duration": "5",
+    "id": "9",
+    "timestamp": "2025-06-01T22:26:11.948523"
+  },
+  {
+    "django_id": 29,
+    "name": "Nanditaa",
+    "age": 18,
+    "gender": "female",
+    "symptoms": [
+      {
+        "id": 1,
+        "name": "Fever"
+      },
+      {
+        "id": 4,
+        "name": "Cough with yellow/green phlegm"
+      }
+    ],
+    "diseases": [
+      {
+        "id": 1,
+        "name": "Influenza",
+        "description": "Seasonal flu virus with sudden fever, body aches, and respiratory symptoms."
+      },
+      {
+        "id": 2,
+        "name": "Acute bronchitis",
+        "description": "Inflammation of bronchial tubes causing productive cough. Often viral in origin."
+      },
+      {
+        "id": 3,
+        "name": "Pneumonia",
+        "description": "Lung infection with fluid buildup. Requires antibiotics if bacterial."
+      }
+    ],
+    "check_date": "2025-06-01T17:01:36.534661+00:00",
+    "duration": "4",
+    "id": "10",
+    "timestamp": "2025-06-01T22:31:36.536655"
+  },
+  {
+    "django_id": 30,
+    "name": "Nanditaa",
+    "age": 18,
+    "gender": "female",
+    "symptoms": [
+      {
+        "id": 9,
+        "name": "Loss of taste/smell"
+      }
+    ],
+    "diseases": [],
+    "check_date": "2025-06-01T17:11:23.833682+00:00",
+    "duration": "4",
+    "id": "11",
+    "timestamp": "2025-06-01T22:41:23.834683"
+  },
+  {
+    "django_id": 31,
+    "name": "Nanditaa",
+    "age": 18,
+    "gender": "female",
+    "symptoms": [
+      {
+        "id": 19,
+        "name": "Headache"
+      },
+      {
+        "id": 24,
+        "name": "Sudden severe headache (\"worst headache ever\")"
+      },
+      {
+        "id": 26,
+        "name": "Stiffness"
+      }
+    ],
+    "diseases": [
+      {
+        "id": 16,
+        "name": "Migraine",
+        "description": "Throbbing one-sided headache with aura. Triggers include stress/hormones."
+      },
+      {
+        "id": 17,
+        "name": "Tension headache",
+        "description": "Band-like pressure from stress/muscle strain. No nausea/vomiting."
+      },
+      {
+        "id": 20,
+        "name": "Stroke",
+        "description": "Brain artery blockage/rupture. \"FAST\" signs (face droop, arm weakness, speech difficulty)."
+      },
+      {
+        "id": 21,
+        "name": "Brain aneurysm",
+        "description": "Ruptured vessel causes thunderclap headache. Medical emergency."
+      },
+      {
+        "id": 22,
+        "name": "Parkinson\u2019s",
+        "description": "Progressive movement disorder. Resting tremors, slow movements, rigidity."
+      },
+      {
+        "id": 23,
+        "name": "Essential tremor",
+        "description": "Hereditary shaking during activity. Improves with alcohol/beta-blockers."
+      }
+    ],
+    "check_date": "2025-06-01T17:11:39.964789+00:00",
+    "duration": "4",
+    "id": "12",
+    "timestamp": "2025-06-01T22:41:39.968793"
+  },
+  {
+    "django_id": 32,
+    "name": "Nanditaa",
+    "age": 18,
+    "gender": "female",
+    "symptoms": [
+      {
+        "id": 21,
+        "name": "Light sensitivity"
+      }
+    ],
+    "diseases": [
+      {
+        "id": 16,
+        "name": "Migraine",
+        "description": "Throbbing one-sided headache with aura. Triggers include stress/hormones."
+      },
+      {
+        "id": 17,
+        "name": "Tension headache",
+        "description": "Band-like pressure from stress/muscle strain. No nausea/vomiting."
+      }
+    ],
+    "check_date": "2025-06-01T17:44:34.191896+00:00",
+    "duration": "5",
+    "id": "13",
+    "timestamp": "2025-06-01T23:14:34.193366"
+  },
+  {
+    "django_id": 33,
+    "name": "Sabithra",
+    "age": 17,
+    "gender": "female",
+    "symptoms": [
+      {
+        "id": 44,
+        "name": "Weight loss"
+      }
+    ],
+    "diseases": [
+      {
+        "id": 41,
+        "name": "Hyperthyroidism",
+        "description": "Overactive thyroid increases metabolism. Check TSH/T4; treat with antithyroid drugs"
+      },
+      {
+        "id": 49,
+        "name": "Chronic regional pain syndrome (CRPS)",
+        "description": "Post-injury neuropathic pain. Early physiotherapy improves outcomes."
+      }
+    ],
+    "check_date": "2025-06-02T03:25:30.352373+00:00",
+    "duration": "23",
+    "id": "14",
+    "timestamp": "2025-06-02T08:55:30.356494"
+  },
+  {
+    "django_id": 34,
+    "name": "Nanditaa",
+    "age": 18,
+    "gender": "female",
+    "symptoms": [
+      {
+        "id": 1,
+        "name": "Fever"
+      },
+      {
+        "id": 2,
+        "name": "Dry cough"
+      },
+      {
+        "id": 3,
+        "name": "Fatigue"
+      }
+    ],
+    "diseases": [
+      {
+        "id": 1,
+        "name": "Influenza",
+        "description": "Seasonal flu virus with sudden fever, body aches, and respiratory symptoms."
+      }
+    ],
+    "check_date": "2025-06-02T04:46:42.689659+00:00",
+    "duration": "10",
+    "id": "15",
+    "timestamp": "2025-06-02T10:16:42.694694"
+  }
+]
